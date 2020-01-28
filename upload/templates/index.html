@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dense Image</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="harisresume.herokuapp.com">s</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Result</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="stockmarketweb.herokuapp.com"></a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="header-content">
+        <div class="header-content-inner">
+          <h1 id="homeHeading">Ready to Get Started</h1>
+          <hr>
+          <h5>This website allows users to try different write the rest with aishus help</h5>
+          <p></p>
+          <h3 > Select Your First Image from the below form</h3>
+          <p></p>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form action="{{url_for('success_table')}}" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="file" accept="image/*" name="file">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+          <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Go to Pics</a> -->
+          <p></p>
+          <h4 class="mb-5">  Select your second super hero image from the below form </h4>
+          <h5>{{text|safe}}
+      {% include btn ignore missing %} </h5>
+          <hr>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form action="{{url_for('secondimage')}}" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="file" accept="image/*" name="file">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        </div>
+      </div>
+    </header>
+
+    <section class="p-0" id="portfolio">
+      <div class="container-fluid">
+        <div class="row no-gutter popup-gallery">
+
+        {%block content%}
+        {%endblock%}
+
+        </div>
+      </div>
+    </section>
+
+
+        <section id="services">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Click on one of the below images and wait to see your to see your output</h2>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <a href="{{url_for('changeback')}}"><img class="img-fluid rounded-circle mb-3" src="/static/img/background.jpg" alt=""></a>
+                  <h5>Change the backgorund if your picture</h5>
+                  <p class="font-weight-light mb-0">"if you cant travel , atkeast showoff as if you can :D"</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                     <a href="{{url_for('makesuperhero')}}"><img class="img-fluid rounded-circle mb-3" src="/static/img/ironmansuit.jpg" alt=""/></a>
+                     <h5>Try a superhero suit</h5>
+                     <p class="font-weight-light mb-0">"Be any superhero , pic a suit to be an avenger"</p>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <a href="{{url_for('ironman')}}"><img class="img-fluid rounded-circle mb-3" src="/static/img/alluarjun.jpg" alt=""/></a>
+                  <h5>Try a different shirt </h5>
+                  <p class="font-weight-light mb-0">"Try different clothes"</p>
+                    </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="service-box">
+                  <a href="{{url_for('denseimage')}}"><img class="img-fluid rounded-circle mb-3" src="http://densepose.org/img/coords.png" alt=""/></a>
+                  </div>
+                  <h5>See your result for densepose </h5>
+                  <p class="font-weight-light mb-0">"Try the algorithm"</p>
+              </div>
+              <div class="col-lg-4">
+                <div class="service-box">
+                  <a href="{{url_for('video')}}"><img class="img-fluid rounded-circle mb-3" src="/static/img/vid.jpg" alt=""/></a></a>
+                  <h5>For Video </h5>
+                  <p class="font-weight-light mb-0">"Try the algorithm"</p>
+
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="service-box">
+                  <a href="{{url_for('stylize')}}"><img class="img-fluid rounded-circle mb-3" src="/static/img/style.jpeg" alt=""/></a>
+                  <h5>For style transfer </h5>
+                  <p class="font-weight-light mb-0">"Try the algorithm"</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    <section class="download bg-primary text-center" id="download">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">Below is the space for errors </h2>
+            <p>Mistakes happen ,even with computer below is thes pace show the error message</p>
+            <h3 class="lead mb-0">
+              {{text|safe}}
+              {% include btn ignore missing %}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <hr class="primary">
+            <p>if you have any questions or want to discuss you can contact me through below links</p>
+            <!-- <h2>We
+              <i class="fa fa-heart"></i>
+              new friends!</h2> -->
+            <ul class="list-inline list-social">
+              <li class="list-inline-item social-twitter">
+                <a href="https://twitter.com/harisaranrocks">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item social-facebook">
+                <a href="https://www.facebook.com/hari.saran.56">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item social-google-plus">
+                <a href="https://github.com/chhari">
+                  <i class="fa fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/popper/popper.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/static/js/creative.min.js"></script>
+
+  </body>
+
+</html>
